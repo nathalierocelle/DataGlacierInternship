@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<!-- Side navigation -->
+<div class="sidenav">
+  <img src="/static/images/banner.jpg" style="width: 400px;position: absolute;bottom: 10px;left: 20px;" alt="Company Logo"/>
+  <h4> 🏨 About </h4>
+  <p> The main objective of the website is to help the user in classifying their booked hotel reservation status based on the provided situations through the use of Machine Learning</p>
+  <h4> 🤖 Source Code </h4> 
+  <p> The source code of the behind the development of the Machine Learning Model can be access through the link below</p>
+  <a href="https://github.com/nathalierocelle/DataGlacierInternship">Link</a>
+</div>
+
+ <div class="login">
+	<h1>Classify Your Hotel Reservation Status</h1>
+
+  
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+		<input type="text" name="lead_time" placeholder="Lead Time" required="required" />
+    <input type="text" name="avg_price_per_room" placeholder="Average price per room" required="required" />
+    <input type="text" name="no_of_adults" placeholder="Number of Adults" required="required" /> 
+    <select name="no_of_special_requests" placeholder="Number of Special Request">
+          <option value="none" selected disabled hidden>Number of Special Request</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+    </select>
+
+    <select name="market_segment_type_new" placeholder="Market Segment Type">
+      <option value="none" selected disabled hidden>Market Segment Type</option>
+      <option value="0">Aviation</option>
+      <option value="1">Complimentary</option>
+      <option value="2">Corporate</option>
+      <option value="3">Offline</option>
+      <option value="4">Online</option>
+  </select>
+
+    <select name="arrival_month" placeholder="Arrival Month">
+      <option value="none" selected disabled hidden>Arrival Month</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+    </select>
+
+    <select name="arrival_date" placeholder="Arrival Date">
+      <option value="none" selected disabled hidden>Arrival Date</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+      <option value="20">20</option>
+      <option value="21">21</option>
+      <option value="22">22</option>
+      <option value="23">23</option>
+      <option value="24">24</option>
+      <option value="25">25</option>
+      <option value="26">26</option>
+      <option value="27">27</option>
+      <option value="28">28</option>
+      <option value="29">29</option>
+      <option value="30">30</option>
+      <option value="31">31</option>
+    </select>
+
+    <select name="arrival_year" placeholder="Arrival Year">
+      <option value="none" selected disabled hidden>Arrival Year</option>
+      <option value="2017">2017</option>
+      <option value="2018">2018</option>
+    </select>
+    
+    <input type="text" name="no_of_week_nights" placeholder="Number of Week Nights" required="required" /> 
+    <input type="text" name="no_of_weekend_nights" placeholder="Number of Weekend Nights" required="required" />
+    <input type="submit" value="Predict">
+      
+    </form> 
+    
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+ 
+
+</body>
+</html>
